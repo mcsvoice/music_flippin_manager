@@ -29,9 +29,18 @@ var library = {
 // p01: Coding Music - 2 tracks
 // p02: Other Playlist - 1 tracks
 
-var printPlaylists = function () {
+var printPlaylists = function(library) {
 
+  var playListResult = [];
+
+  for (var id in library.playlists) {
+     playListResult.push(id + ": " + library.playlists[id]["name"] + " - " + library.playlists[id]["tracks"].length + " tracks");
+    }
+    //console.log(playListResult);
+    return (playListResult);
 }
+
+console.log("This is printPlaylistS: " + printPlaylists(library));
 
 
 // prints a list of all tracks, in the form:
@@ -39,10 +48,18 @@ var printPlaylists = function () {
 // t02: Model View Controller by James Dempsey (WWDC 2003)
 // t03: Four Thirty-Three by John Cage (Woodstock 1952)
 
-var printTracks = function () {
+var printTracks = function (library) {
 
+  var printTracksResult = [];
+
+  for (var id in library.tracks) {
+     printTracksResult.push(id + ": " + library.tracks[id]["name"] + " by " + library.tracks[id]["artist"]);
+    }
+    //console.log(playListResult);
+    return (printTracksResult);
 }
 
+console.log("This is printTracks: " + printTracks(library));
 
 // prints a list of tracks for a given playlist, in the form:
 // p01: Coding Music - 2 tracks
@@ -51,8 +68,17 @@ var printTracks = function () {
 
 var printPlaylist = function (playlistId) {
 
+  var printPList = [];
+  var printPListTracks = [];
+
+  for (var id in library.playlists) {
+    printPList.push(id + ": " + library.playlists[id]["name"] + " - " + library.playlists[id]["tracks"].length + " tracks");
+  }
+  return (printPList);
+
 }
 
+console.log("This is printPlaylist(one): " + printPlaylist(library.playlists[0]));
 
 // adds an existing track to an existing playlist
 
@@ -86,7 +112,7 @@ var addPlaylist = function (name) {
 // STRETCH:
 // given a query string string, prints a list of tracks
 // where the name, artist or album contains the query string (case insensitive)
-// tip: use "string".search("tri") 
+// tip: use "string".search("tri")
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/search
 
 var printSearchResults = function(query) {

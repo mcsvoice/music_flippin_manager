@@ -66,27 +66,34 @@ console.log("This is printTracks: " + printTracks(library));
 // t01: Code Monkey by Jonathan Coulton (Thing a Week Three)
 // t02: Model View Controller by James Dempsey (WWDC 2003)
 
-// var printPlaylist = function (playlistId) {
+var printPlaylist = function (playlistId) {
 
-//   var printPList = [];
-//   console.log(playlistId);
+  var printPList = [];
 
-//   for (var id in library.playlists) {
-//    if (playlistId = library.playlists.id) {
-//     printPList.push(id + ": " + library.playlists[id]["name"] + " - " + library.playlists[id]["tracks"].length + " tracks");
-//   }
-// }
-//   return (printPList);
+  printPList.push(playlistId + ": " + library.playlists[playlistId].name + " - " + library.playlists[playlistId].tracks.length + " tracks")
+                                                                                                            //^JHOLMAN did this :D
+  var trackPlist = [];
+    for (var i of library.playlists[playlistId].tracks) {
+      trackPlist.push(i + ": " + library.tracks[i].name + " by " + library.tracks[i].artist + "(" + library.tracks[i].album + ")")
+    }
+    var theListDelivered = [printPList, trackPlist]
 
-// }
+    return theListDelivered
+}
 
-// console.log("This is printPlaylist(one): " + printPlaylist("p01"));
+console.log("This is printPlaylist(one): " + printPlaylist("p01"));
 
 // adds an existing track to an existing playlist
 
 var addTrackToPlaylist = function (trackId, playlistId) {
 
+  var songToAdd = library.tracks[trackId].id;
+
+  library.playlists[playlistId].tracks.push(songToAdd);
+    console.log("Added tracks: " + library.playlists[playlistId].tracks);
 }
+
+addTrackToPlaylist ("t03", "p01");
 
 
 // generates a unique id
@@ -96,20 +103,39 @@ var uid = function() {
   return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
 }
 
+//console.log(uid());
+
 
 // adds a track to the library
 
 var addTrack = function (name, artist, album) {
 
+  //var trackToAdd = library.tracks{};
+  var newTrackID = uid();
+  //console.log(newTrackID);
+
+  library.tracks[newTrackID] = {id : newTrackID, name: name, artist: artist, album: album};
+
+  console.log(library.tracks);
+
 }
 
+console.log(addTrack('Le Perv(Live)','Carpenter Brut','CARPENTERBRUTLIVE'));
+
+//library.playlists.p01.name = 'Awesome music';
 
 // adds a playlist to the library
 
 var addPlaylist = function (name) {
 
+  var newPlayListID = uid();
+
+  library.playlists[newPlayListID] = {id : newPlayListID, name: name, tracks: ['SCHMOOP']};
+  console.log(library.playlists);
+
 }
 
+addPlaylist("p55");
 
 // STRETCH:
 // given a query string string, prints a list of tracks
@@ -119,9 +145,14 @@ var addPlaylist = function (name) {
 
 var printSearchResults = function(query) {
 
+  var searchRequest = query.toLowerCase()
+  console.log(searchRequest)
+
+  library.tracks["name"].search()
+
 }
 
-
+console.log(printSearchResults("tri"));
 
 
 // var input = [

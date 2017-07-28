@@ -53,7 +53,7 @@ var printTracks = function (library) {
   var printTracksResult = [];
 
   for (var id in library.tracks) {
-     printTracksResult.push(id + ": " + library.tracks[id]["name"] + " by " + library.tracks[id]["artist"]);
+     printTracksResult.push(library.tracks["id"] + ": " + library.tracks[id]["name"] + " by " + library.tracks[id]["artist"]);
     }
     //console.log(playListResult);
     return (printTracksResult);
@@ -66,19 +66,21 @@ console.log("This is printTracks: " + printTracks(library));
 // t01: Code Monkey by Jonathan Coulton (Thing a Week Three)
 // t02: Model View Controller by James Dempsey (WWDC 2003)
 
-var printPlaylist = function (playlistId) {
+// var printPlaylist = function (playlistId) {
 
-  var printPList = [];
-  var printPListTracks = [];
+//   var printPList = [];
+//   console.log(playlistId);
 
-  for (var id in library.playlists) {
-    printPList.push(id + ": " + library.playlists[id]["name"] + " - " + library.playlists[id]["tracks"].length + " tracks");
-  }
-  return (printPList);
+//   for (var id in library.playlists) {
+//    if (playlistId = library.playlists.id) {
+//     printPList.push(id + ": " + library.playlists[id]["name"] + " - " + library.playlists[id]["tracks"].length + " tracks");
+//   }
+// }
+//   return (printPList);
 
-}
+// }
 
-console.log("This is printPlaylist(one): " + printPlaylist(library.playlists[0]));
+// console.log("This is printPlaylist(one): " + printPlaylist("p01"));
 
 // adds an existing track to an existing playlist
 
@@ -118,3 +120,24 @@ var addPlaylist = function (name) {
 var printSearchResults = function(query) {
 
 }
+
+
+
+
+// var input = [
+//   { x: 3, y: 4 },
+//   { x: 12, y: 5 },
+//   { x: 8, y: 15 }
+// ];
+
+// //a is getting the value in the object in the array but I don't want that
+// //I want a to be equal to x and b to be equal to y
+
+// var result = input.map(function(a){
+//   console.log(a);
+//   return Math.sqrt(Math.pow(a.x, 2) + Math.pow(a.y,2));
+// });
+
+// console.log(result[0] === 5);
+// console.log(result[1] === 13);
+// console.log(result[2] === 17);

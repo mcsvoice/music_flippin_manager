@@ -144,27 +144,29 @@ addPlaylist("p55");
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/search
 
 var printSearchResults = function(query) {
-  var iFoundIt = [];
+  // var iFoundIt = [];
 
-  var searchRequest = query;
+  // var searchRequest = query;
 
-  for (var i = 0; i < library.tracks.length; i++) {
-    for (name in library.tracks["name"]) {
-      if (library.tracks[i]["name"].indexOf(searchRequest)!=-1) {
-        iFoundIt.push(library.tracks[i]);
-      }
-      console.log(iFoundit);
-      console.log(library.tracks.length);
-    }
-  }
+  // for (var i = 0; i < library.tracks.length; i++) {
+  //   for (name in library.tracks["name"]) {
+  //     if (library.tracks[i]["name"] ????????? profit)
+  //       iFoundIt.push(library.tracks[i]);
+  //     }
+  //     console.log(iFoundit);
+  //     console.log(library.tracks.length);
+  //   }
+  // }
 
-  console.log(searchRequest)
+  // console.log(searchRequest)
+
+          /* THIS IS NOT GOING TO WORK */
 
   // library.tracks["name"].search()
 
 }
 
-console.log(printSearchResults("tri"));
+// console.log(printSearchResults("tri"));
 
 
 // var input = [

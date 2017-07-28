@@ -21,18 +21,20 @@ var library = {
                       tracks: ["t03"]
                     }
              },
+  printPlaylists: {
+    function(library) {
 
-             printPlaylists: function() {
+  var playListResult = [];
 
-  playListResult = [];
-
-  for (var id in library.playlists) {
-     playListResult.push(id + ": " + library.playlists[id]["name"] + " - " + library.playlists[id]["tracks"].length + " tracks");
+  for (var id in this.playlists) {
+     playListResult.push(id + ": " + this.playlists[id]["name"] + " - " + this.playlists[id]["tracks"].length + " tracks");
     }
     //console.log(playListResult);
-    return console.log(this);
-    console.log("This is printPlaylists" + playListResult);
+    return (playListResult);
 }
+
+//console.log("This is printPlaylistS: " + printPlaylists(library));
+  }
 }
 
 // FUNCTIONS TO IMPLEMENT:
@@ -41,18 +43,18 @@ var library = {
 // p01: Coding Music - 2 tracks
 // p02: Other Playlist - 1 tracks
 
-// var printPlaylists = function(library) {
+var printPlaylists = function(library) {
 
-//   var playListResult = [];
+  var playListResult = [];
 
-//   for (var id in library.playlists) {
-//      playListResult.push(id + ": " + library.playlists[id]["name"] + " - " + library.playlists[id]["tracks"].length + " tracks");
-//     }
-//     //console.log(playListResult);
-//     return (playListResult);
-// }
+  for (var id in library.playlists) {
+     playListResult.push(id + ": " + library.playlists[id]["name"] + " - " + library.playlists[id]["tracks"].length + " tracks");
+    }
+    //console.log(playListResult);
+    return (playListResult);
+}
 
-// console.log("This is printPlaylistS: " + printPlaylists(library));
+console.log("This is printPlaylistS: " + printPlaylists(library));
 
 
 // prints a list of all tracks, in the form:
@@ -122,9 +124,7 @@ var uid = function() {
 
 var addTrack = function (name, artist, album) {
 
-  //var trackToAdd = library.tracks{};
   var newTrackID = uid();
-  //console.log(newTrackID);
 
   library.tracks[newTrackID] = {id : newTrackID, name: name, artist: artist, album: album};
 
@@ -134,9 +134,6 @@ var addTrack = function (name, artist, album) {
 
 console.log(addTrack('Le Perv(Live)','Carpenter Brut','CARPENTERBRUTLIVE'));
 
-//library.playlists.p01.name = 'Awesome music';
-
-// adds a playlist to the library
 
 var addPlaylist = function (name) {
 
@@ -149,52 +146,7 @@ var addPlaylist = function (name) {
 
 addPlaylist("p55");
 
-// STRETCH:
-// given a query string string, prints a list of tracks
-// where the name, artist or album contains the query string (case insensitive)
-// tip: use "string".search("tri")
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/search
-
 var printSearchResults = function(query) {
-  // var iFoundIt = [];
 
-  // var searchRequest = query;
-
-  // for (var i = 0; i < library.tracks.length; i++) {
-  //   for (name in library.tracks["name"]) {
-  //     if (library.tracks[i]["name"] ????????? profit)
-  //       iFoundIt.push(library.tracks[i]);
-  //     }
-  //     console.log(iFoundit);
-  //     console.log(library.tracks.length);
-  //   }
-  // }
-
-  // console.log(searchRequest)
-
-          /* THIS IS NOT GOING TO WORK */
-
-  // library.tracks["name"].search()
 
 }
-
-// console.log(printSearchResults("tri"));
-
-
-// var input = [
-//   { x: 3, y: 4 },
-//   { x: 12, y: 5 },
-//   { x: 8, y: 15 }
-// ];
-
-// //a is getting the value in the object in the array but I don't want that
-// //I want a to be equal to x and b to be equal to y
-
-// var result = input.map(function(a){
-//   console.log(a);
-//   return Math.sqrt(Math.pow(a.x, 2) + Math.pow(a.y,2));
-// });
-
-// console.log(result[0] === 5);
-// console.log(result[1] === 13);
-// console.log(result[2] === 17);
